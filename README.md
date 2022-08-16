@@ -3,7 +3,7 @@
 ## ⚙️ Setup Serivce
 1. This serivce use database, so it need to setup database first by using sciprt below **(Please instal Docker and Docker Compose first [link](https://docs.docker.com/engine/install/))**
 ```
-sudo docker-compose -p brikl-task-dev -f deployment/docker-compose.yaml up -d database
+sudo docker compose -p brikl-task-dev -f deployment/docker-compose.yaml up -d database
 ```
 2. After setup database, need to install dependency by using command below
 ```
@@ -32,9 +32,9 @@ yarn start
 2. Go to path *http://localhost:3000/graphql*
 
 ## 🐳 Start Service with Docker
-**Can not build in M1**
+**Can not build in Mac-silicon-cpu**
 1. Build Image
 ```
-sudo docker-compose -f deployment/docker-compose.build.yaml build
+sudo docker compose -f deployment/docker-compose.build.yaml build
 ```
 1. Go to path *http://localhost:3000/graphql*
