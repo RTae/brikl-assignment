@@ -22,6 +22,7 @@ services:
       - brikl_task_dev_net
     volumes:
       - brikl_task_dev_persitance_postgresql:/var/lib/postgresql/data:rw
+    restart: always
 
   task_service:
     image: $IMAGE_NAME/task_service:$VERSION
@@ -33,3 +34,6 @@ services:
       DB_URL: $DB_URL
     networks:
       - brikl_task_dev_net
+    depends_on:
+      - database
+    restart: always

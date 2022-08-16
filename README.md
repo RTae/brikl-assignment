@@ -42,4 +42,8 @@ yarn start
 ```
 sudo docker compose -f deployment/docker-compose.build.yaml build
 ```
-1. Go to path *http://localhost:3000/graphql*
+2. Start Service
+```
+sudo docker compose -p brikl-task-dev -f deployment/docker-compose.yaml up -d
+```
+3. Go to path *http://localhost:3000/graphql*
