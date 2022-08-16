@@ -24,8 +24,11 @@ export class TaskListResolver {
      * Get TaskList records
      */
 
-    const select = new PrismaSelect(info).value
-    const result = await this.taskListService.get(args, select)
+    let select = new PrismaSelect(info)
+    if (select) select = select.value
+
+    console.log(select)
+    const result = await this.taskListService.get(args, null)
     if (result instanceof Error) this.logger.error(`${result}`)
     return result
   }
@@ -57,7 +60,8 @@ export class TaskListResolver {
     /**
      * Update TaskList record
      */
-    const select = new PrismaSelect(info).value
+    let select = new PrismaSelect(info)
+    if (select) select = select.value
     const result = await this.taskListService.update(args, select)
     if (result instanceof Error) this.logger.error(`${result}`)
 

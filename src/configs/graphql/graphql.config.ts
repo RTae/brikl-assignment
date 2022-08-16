@@ -1,6 +1,8 @@
 export const graphqlConfig = {
   installSubscriptionHandlers: true,
   autoSchemaFile: 'src/configs/graphql/schema.gql',
+  debug: true,
+  playground: true,
   formatError: (error) => {
     return {
       message: error.extensions?.exception?.response?.message || error.message,
@@ -13,7 +15,5 @@ export const graphqlConfig = {
   cors: {
     origin: '*',
     methods: 'GET, POST',
-    /* It's a boolean that tells the server to send cookies to the client. */
-    credentials: true,
   },
 }

@@ -1,4 +1,4 @@
-import { Field, ID, ObjectType } from '@nestjs/graphql'
+import { Field, ObjectType, ID } from '@nestjs/graphql'
 import { TaskList } from 'src/models/task-list/task-list.model'
 import { State } from 'src/models/prisma/state.enum'
 
@@ -19,7 +19,7 @@ export class Task {
   @Field(() => Boolean, { nullable: false, defaultValue: false })
   status!: boolean
 
-  @Field(() => State, { nullable: false, defaultValue: 'WATING' })
+  @Field(() => State, { nullable: false, defaultValue: 'WAITING' })
   state!: keyof typeof State
 
   @Field(() => Date, { nullable: false })

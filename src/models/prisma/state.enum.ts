@@ -1,7 +1,7 @@
 import { registerEnumType } from '@nestjs/graphql'
 
 export enum State {
-  WATING = 'WATING',
+  WAITING = 'WAITING',
   PROGRESS = 'PROGRESS',
   VALIDATE = 'VALIDATE',
   DONE = 'DONE',

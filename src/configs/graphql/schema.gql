@@ -33,7 +33,7 @@ type Task {
 }
 
 enum State {
-  WATING
+  WAITING
   PROGRESS
   VALIDATE
   DONE

@@ -18,13 +18,16 @@ export class TaskResolver {
   })
   async getTasks(
     @Args('') args: TaskModel.FindManyTaskArgs,
-    @Info() info: GraphQLResolveInfo,
+    @Info() info: GraphQLResolveInfo | null,
   ): Promise<TaskModel.Task[] | Error> {
     /**
      * Get Task records
      */
 
-    const select = new PrismaSelect(info).value
+    let select = new PrismaSelect(info)
+    if (select) select = select.value
+
+    console.log(select)
     const result = await this.taskService.get(args, select)
     if (result instanceof Error) this.logger.error(`${result}`)
     return result
@@ -52,12 +55,13 @@ export class TaskResolver {
   })
   async updateTask(
     @Args('') args: TaskModel.UpdateOneTaskArgs,
-    @Info() info: GraphQLResolveInfo,
+    @Info() info: GraphQLResolveInfo | null,
   ): Promise<TaskModel.Task | Error> {
     /**
      * Update Task record
      */
-    const select = new PrismaSelect(info).value
+    let select = new PrismaSelect(info)
+    if (select) select = select.value
     const result = await this.taskService.update(args, select)
     if (result instanceof Error) this.logger.error(`${result}`)
 

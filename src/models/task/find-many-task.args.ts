@@ -1,9 +1,9 @@
-import { Field, ArgsType, Int } from '@nestjs/graphql'
-import { TaskWhereInput } from './task-where.input'
+import { Field, Int, ArgsType } from '@nestjs/graphql'
+import { TaskWhereInput } from 'src/models/task/task-where.input'
 import { Type } from 'class-transformer'
 import { TaskOrderByWithRelationInput } from 'src/models/task/task-order-by-with-relation.input'
-import { TaskWhereUniqueInput } from 'src/models/task//task-where-unique.input'
-import { TaskScalarFieldEnum } from 'src/models/task//task-scalar-field.enum'
+import { TaskWhereUniqueInput } from 'src/models/task/task-where-unique.input'
+import { TaskScalarFieldEnum } from 'src/models/task/task-scalar-field.enum'
 
 @ArgsType()
 export class FindManyTaskArgs {
