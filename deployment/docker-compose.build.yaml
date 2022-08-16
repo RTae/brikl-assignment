@@ -4,5 +4,5 @@ services:
   task_service:
     build:
       context: ../
-      dockerfile: ./deployment/build/Dockerfile
+      dockerfile: ./deployment/build-image/Dockerfile
     image: $IMAGE_NAME/task_service:$VERSION
