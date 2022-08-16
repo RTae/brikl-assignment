@@ -30,3 +30,10 @@ yarn start:dev
 yarn start
 ```
 2. Go to path *http://localhost:3000/graphql*
+
+## 🐳 Start Service with Docker
+1. Build Image
+```
+sudo docker-compose -f deployment/docker-compose.build.yaml build
+```
+1. Go to path *http://localhost:3000/graphql*
