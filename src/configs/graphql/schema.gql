@@ -1,0 +1,429 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type TaskListCount {
+  tasks: Int!
+}
+
+type TaskList {
+  tlid: ID!
+  name: String!
+  desciprtion: String!
+  tasks: [Task!]
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  _count: TaskListCount!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Task {
+  tid: ID!
+  taskList: TaskList!
+  tlid: String!
+  name: String!
+  status: Boolean!
+  state: State!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+enum State {
+  WATING
+  PROGRESS
+  VALIDATE
+  DONE
+}
+
+type Query {
+  getTasks(where: TaskWhereInput, orderBy: [TaskOrderByWithRelationInput!], cursor: TaskWhereUniqueInput, take: Int, skip: Int, distinct: [TaskScalarFieldEnum!]): [Task!]
+  getTaskLists(where: TaskListWhereInput, orderBy: [TaskListOrderByWithRelationInput!], cursor: TaskListWhereUniqueInput, take: Int, skip: Int, distinct: [TaskListScalarFieldEnum!]): [TaskList!]
+}
+
+input TaskWhereInput {
+  AND: [TaskWhereInput!]
+  OR: [TaskWhereInput!]
+  NOT: [TaskWhereInput!]
+  tid: IntFilter
+  taskList: TaskListRelationFilter
+  tlid: StringFilter
+  name: StringFilter
+  status: BoolFilter
+  state: EnumStateFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input IntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input NestedIntFilter {
+  equals: Int
+  in: [Int!]
+  notIn: [Int!]
+  lt: Int
+  lte: Int
+  gt: Int
+  gte: Int
+  not: NestedIntFilter
+}
+
+input TaskListRelationFilter {
+  every: TaskWhereInput
+  some: TaskWhereInput
+  none: TaskWhereInput
+}
+
+input StringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  mode: QueryMode
+  not: NestedStringFilter
+}
+
+enum QueryMode {
+  default
+  insensitive
+}
+
+input NestedStringFilter {
+  equals: String
+  in: [String!]
+  notIn: [String!]
+  lt: String
+  lte: String
+  gt: String
+  gte: String
+  contains: String
+  startsWith: String
+  endsWith: String
+  not: NestedStringFilter
+}
+
+input BoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input NestedBoolFilter {
+  equals: Boolean
+  not: NestedBoolFilter
+}
+
+input EnumStateFilter {
+  equals: State
+  in: [State!]
+  notIn: [State!]
+  not: NestedEnumStateFilter
+}
+
+input NestedEnumStateFilter {
+  equals: State
+  in: [State!]
+  notIn: [State!]
+  not: NestedEnumStateFilter
+}
+
+input DateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input NestedDateTimeFilter {
+  equals: DateTime
+  in: [DateTime!]
+  notIn: [DateTime!]
+  lt: DateTime
+  lte: DateTime
+  gt: DateTime
+  gte: DateTime
+  not: NestedDateTimeFilter
+}
+
+input TaskOrderByWithRelationInput {
+  tid: SortOrder
+  taskList: TaskListOrderByWithRelationInput
+  tlid: SortOrder
+  name: SortOrder
+  status: SortOrder
+  state: SortOrder
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+enum SortOrder {
+  asc
+  desc
+}
+
+input TaskListOrderByWithRelationInput {
+  tlid: SortOrder
+  name: SortOrder
+  desciprtion: SortOrder
+  tasks: TaskOrderByRelationAggregateInput
+  createdAt: SortOrder
+  updatedAt: SortOrder
+}
+
+input TaskOrderByRelationAggregateInput {
+  _count: SortOrder
+}
+
+input TaskWhereUniqueInput {
+  tid: Int
+}
+
+enum TaskScalarFieldEnum {
+  tid
+  tlid
+  name
+  status
+  state
+  createdAt
+  updatedAt
+}
+
+input TaskListWhereInput {
+  AND: [TaskListWhereInput!]
+  OR: [TaskListWhereInput!]
+  NOT: [TaskListWhereInput!]
+  tlid: StringFilter
+  name: StringFilter
+  desciprtion: StringFilter
+  tasks: TaskListRelationFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input TaskListWhereUniqueInput {
+  tlid: String
+  name: String
+}
+
+enum TaskListScalarFieldEnum {
+  tlid
+  name
+  desciprtion
+  createdAt
+  updatedAt
+}
+
+type Mutation {
+  createTask(data: TaskCreateInput!): Task
+  updateTask(data: TaskUpdateInput!, where: TaskWhereUniqueInput!): Task
+  deleteTask(where: TaskWhereUniqueInput!): Task
+  createTaskList(data: TaskListCreateInput!): TaskList
+  updateTaskList(data: TaskListUpdateInput!, where: TaskListWhereUniqueInput!): TaskList
+  deleteTaskList(where: TaskListWhereUniqueInput!): TaskList
+}
+
+input TaskCreateInput {
+  taskList: TaskListCreateNestedOneWithoutTasksInput!
+  name: String!
+  status: Boolean
+  state: State
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TaskListCreateNestedOneWithoutTasksInput {
+  create: TaskListCreateWithoutTasksInput
+  connectOrCreate: TaskListCreateOrConnectWithoutTasksInput
+  connect: TaskListWhereUniqueInput
+}
+
+input TaskListCreateWithoutTasksInput {
+  tlid: String
+  name: String!
+  desciprtion: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TaskListCreateOrConnectWithoutTasksInput {
+  where: TaskListWhereUniqueInput!
+  create: TaskListCreateWithoutTasksInput!
+}
+
+input TaskUpdateInput {
+  taskList: TaskListUpdateOneRequiredWithoutTasksNestedInput
+  name: StringFieldUpdateOperationsInput
+  status: BoolFieldUpdateOperationsInput
+  state: EnumStateFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TaskListUpdateOneRequiredWithoutTasksNestedInput {
+  create: TaskListCreateWithoutTasksInput
+  connectOrCreate: TaskListCreateOrConnectWithoutTasksInput
+  upsert: TaskListUpsertWithoutTasksInput
+  connect: TaskListWhereUniqueInput
+  update: TaskListUpdateWithoutTasksInput
+}
+
+input TaskListUpsertWithoutTasksInput {
+  update: TaskListUpdateWithoutTasksInput!
+  create: TaskListCreateWithoutTasksInput!
+}
+
+input TaskListUpdateWithoutTasksInput {
+  tlid: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  desciprtion: StringFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
+}
+
+input DateTimeFieldUpdateOperationsInput {
+  set: DateTime
+}
+
+input BoolFieldUpdateOperationsInput {
+  set: Boolean
+}
+
+input EnumStateFieldUpdateOperationsInput {
+  set: State
+}
+
+input TaskListCreateInput {
+  tlid: String
+  name: String!
+  desciprtion: String!
+  tasks: TaskCreateNestedManyWithoutTaskListInput
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TaskCreateNestedManyWithoutTaskListInput {
+  create: [TaskCreateWithoutTaskListInput!]
+  connectOrCreate: [TaskCreateOrConnectWithoutTaskListInput!]
+  createMany: TaskCreateManyTaskListInputEnvelope
+  connect: [TaskWhereUniqueInput!]
+}
+
+input TaskCreateWithoutTaskListInput {
+  name: String!
+  status: Boolean
+  state: State
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TaskCreateOrConnectWithoutTaskListInput {
+  where: TaskWhereUniqueInput!
+  create: TaskCreateWithoutTaskListInput!
+}
+
+input TaskCreateManyTaskListInputEnvelope {
+  data: [TaskCreateManyTaskListInput!]!
+  skipDuplicates: Boolean
+}
+
+input TaskCreateManyTaskListInput {
+  tid: Int
+  name: String!
+  status: Boolean
+  state: State
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input TaskListUpdateInput {
+  tlid: StringFieldUpdateOperationsInput
+  name: StringFieldUpdateOperationsInput
+  desciprtion: StringFieldUpdateOperationsInput
+  tasks: TaskUpdateManyWithoutTaskListNestedInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TaskUpdateManyWithoutTaskListNestedInput {
+  create: [TaskCreateWithoutTaskListInput!]
+  connectOrCreate: [TaskCreateOrConnectWithoutTaskListInput!]
+  upsert: [TaskUpsertWithWhereUniqueWithoutTaskListInput!]
+  createMany: TaskCreateManyTaskListInputEnvelope
+  set: [TaskWhereUniqueInput!]
+  disconnect: [TaskWhereUniqueInput!]
+  delete: [TaskWhereUniqueInput!]
+  connect: [TaskWhereUniqueInput!]
+  update: [TaskUpdateWithWhereUniqueWithoutTaskListInput!]
+  updateMany: [TaskUpdateManyWithWhereWithoutTaskListInput!]
+  deleteMany: [TaskScalarWhereInput!]
+}
+
+input TaskUpsertWithWhereUniqueWithoutTaskListInput {
+  where: TaskWhereUniqueInput!
+  update: TaskUpdateWithoutTaskListInput!
+  create: TaskCreateWithoutTaskListInput!
+}
+
+input TaskUpdateWithoutTaskListInput {
+  name: StringFieldUpdateOperationsInput
+  status: BoolFieldUpdateOperationsInput
+  state: EnumStateFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input TaskUpdateWithWhereUniqueWithoutTaskListInput {
+  where: TaskWhereUniqueInput!
+  data: TaskUpdateWithoutTaskListInput!
+}
+
+input TaskUpdateManyWithWhereWithoutTaskListInput {
+  where: TaskScalarWhereInput!
+  data: TaskUpdateManyMutationInput!
+}
+
+input TaskScalarWhereInput {
+  AND: [TaskScalarWhereInput!]
+  OR: [TaskScalarWhereInput!]
+  NOT: [TaskScalarWhereInput!]
+  tid: IntFilter
+  tlid: StringFilter
+  name: StringFilter
+  status: BoolFilter
+  state: EnumStateFilter
+  createdAt: DateTimeFilter
+  updatedAt: DateTimeFilter
+}
+
+input TaskUpdateManyMutationInput {
+  name: StringFieldUpdateOperationsInput
+  status: BoolFieldUpdateOperationsInput
+  state: EnumStateFieldUpdateOperationsInput
+  createdAt: DateTimeFieldUpdateOperationsInput
+  updatedAt: DateTimeFieldUpdateOperationsInput
+}
