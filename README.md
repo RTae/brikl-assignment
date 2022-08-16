@@ -18,6 +18,11 @@ npx prisma generate --schema src/providers/database/prisma/schema.prisma
 npx prisma db push --force-reset --accept-data-loss --schema src/providers/database/prisma/schema.prisma
 ```
 
+## Unit test
+```
+npm run test
+```
+
 ## 🚀 Start Service with NodeJs
 1. This serice can run start with NodeJs by using script below
    
