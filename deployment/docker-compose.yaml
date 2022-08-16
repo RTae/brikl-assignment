@@ -1,25 +1,35 @@
 version: '3.8'
 networks:
-  dia_om_dev_net:
+  brikl_task_dev_net:
     driver: bridge
 
 volumes:
-  dia_om_dev_persitance_postgresql:
+  brikl_task_dev_persitance_postgresql:
 
 services:
   database:
     image: postgres:14
     container_name: database.$DOMAIN
+    ports:
+      - 5432:5432
     environment:
-      # timezone must be synchronized
       TZ: Asia/Bangkok
       POSTGRES_DB: $DB_DATABASE
       POSTGRES_USER: $DB_USER
       POSTGRES_PASSWORD: $DB_PASSWORD
       PGDATA: /var/lib/postgresql/data/pgdata
     networks:
-      - dia_om_dev_net
-    ports:
-      - 5432:5432
+      - brikl_task_dev_net
     volumes:
-      - dia_om_dev_persitance_postgresql:/var/lib/postgresql/data:rw
+      - brikl_task_dev_persitance_postgresql:/var/lib/postgresql/data:rw
+
+  task_service:
+    image: $IMAGE_NAME/task_service:$VERSION
+    container_name: task_service.$DOMAIN
+    ports:
+      - 3000:3000
+    environment:
+      TZ: Asia/Bangkok
+      DB_URL: $DB_URL
+    networks:
+      - brikl_task_dev_net

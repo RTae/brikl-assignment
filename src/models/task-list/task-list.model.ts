@@ -1,7 +1,5 @@
-import { Field } from '@nestjs/graphql'
-import { ObjectType } from '@nestjs/graphql'
-import { ID } from '@nestjs/graphql'
-import { Task } from '../task/task.model'
+import { Field, ObjectType, ID } from '@nestjs/graphql'
+import { Task } from 'src/models/task/task.model'
 import { TaskListCount } from './task-list-count.output'
 
 @ObjectType()

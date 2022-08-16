@@ -1,8 +1,7 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { StringFilter } from '../prisma/string-filter.input'
-import { TaskListRelationFilter } from '../task/task-list-relation-filter.input'
-import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { StringFilter } from 'src/models/prisma/string-filter.input'
+import { TaskListRelationFilter } from 'src/models/task/task-list-relation-filter.input'
+import { DateTimeFilter } from 'src/models/prisma/date-time-filter.input'
 
 @InputType()
 export class TaskListWhereInput {

@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { SortOrder } from '../prisma/sort-order.enum'
-import { TaskListOrderByWithRelationInput } from '../task-list/task-list-order-by-with-relation.input'
+import { TaskListOrderByWithRelationInput } from 'src/models/task-list/task-list-order-by-with-relation.input'
 
 @InputType()
 export class TaskOrderByWithRelationInput {

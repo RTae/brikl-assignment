@@ -1,7 +1,7 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
 import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { TaskUncheckedUpdateManyWithoutTaskListNestedInput } from '../task/task-unchecked-update-many-without-task-list-nested.input'
+import { TaskUncheckedUpdateManyWithoutTaskListNestedInput } from 'src/models/task/task-unchecked-update-many-without-task-list-nested.input'
 import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
 
 @InputType()

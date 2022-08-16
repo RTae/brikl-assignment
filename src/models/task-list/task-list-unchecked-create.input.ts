@@ -1,6 +1,6 @@
 import { Field } from '@nestjs/graphql'
 import { InputType } from '@nestjs/graphql'
-import { TaskUncheckedCreateNestedManyWithoutTaskListInput } from '../task/task-unchecked-create-nested-many-without-task-list.input'
+import { TaskUncheckedCreateNestedManyWithoutTaskListInput } from 'src/models/task/task-unchecked-create-nested-many-without-task-list.input'
 
 @InputType()
 export class TaskListUncheckedCreateInput {
