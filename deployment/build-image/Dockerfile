@@ -62,7 +62,6 @@ COPY package.json ./package.json
 RUN rm -rf /var/cache/apk/* && rm -rf /tmp/*
 
 # expose port and define CMD
-ENV NODE_ENV production
 EXPOSE 3000
 COPY deployment/build-image/entrypoint.sh ./entrypoint.sh
 RUN chmod +x entrypoint.sh

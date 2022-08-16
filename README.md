@@ -46,4 +46,12 @@ sudo docker compose -f deployment/docker-compose.build.yaml build
 ```
 sudo docker compose -p brikl-task-dev -f deployment/docker-compose.yaml up -d
 ```
-3. Go to path *http://localhost:3000/graphql*
+3. Migrate Database
+```
+sudo docker exec -it task_service.brikl-task-dev.com bash
+
+npx prisma db push --force-reset --accept-data-loss --schema=src/providers/database/prisma/schema.prisma
+
+exit
+```
+4. Go to path *http://localhost:3000/graphql*
