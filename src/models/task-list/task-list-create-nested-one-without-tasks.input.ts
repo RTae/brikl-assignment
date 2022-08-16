@@ -1,9 +1,8 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { TaskListCreateWithoutTasksInput } from './task-list-create-without-tasks.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { TaskListCreateWithoutTasksInput } from 'src/models/task-list/task-list-create-without-tasks.input'
 import { Type } from 'class-transformer'
-import { TaskListCreateOrConnectWithoutTasksInput } from './task-list-create-or-connect-without-tasks.input'
-import { TaskListWhereUniqueInput } from './task-list-where-unique.input'
+import { TaskListCreateOrConnectWithoutTasksInput } from 'src/models/task-list/task-list-create-or-connect-without-tasks.input'
+import { TaskListWhereUniqueInput } from 'src/models/task-list/task-list-where-unique.input'
 
 @InputType()
 export class TaskListCreateNestedOneWithoutTasksInput {

@@ -3,6 +3,7 @@ export const graphqlConfig = {
   autoSchemaFile: 'src/configs/graphql/schema.gql',
   debug: true,
   playground: true,
+  introspection: true,
   formatError: (error) => {
     return {
       message: error.extensions?.exception?.response?.message || error.message,
