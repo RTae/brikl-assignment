@@ -26,9 +26,7 @@ export class TaskListResolver {
 
     let select = new PrismaSelect(info)
     if (select) select = select.value
-
-    console.log(select)
-    const result = await this.taskListService.get(args, null)
+    const result = await this.taskListService.get(args, select)
     if (result instanceof Error) this.logger.error(`${result}`)
     return result
   }

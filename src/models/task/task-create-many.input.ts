@@ -1,12 +1,10 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { Int } from '@nestjs/graphql'
-import { State } from '../prisma/state.enum'
+import { Field, InputType } from '@nestjs/graphql'
+import { State } from 'src/models/prisma/state.enum'
 
 @InputType()
 export class TaskCreateManyInput {
-  @Field(() => Int, { nullable: true })
-  tid?: number
+  @Field(() => String, { nullable: true })
+  tid?: string
 
   @Field(() => String, { nullable: false })
   tlid!: string

@@ -1,10 +1,8 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntFilter } from '../prisma/int-filter.input'
-import { StringFilter } from '../prisma/string-filter.input'
-import { BoolFilter } from '../prisma/bool-filter.input'
-import { EnumStateFilter } from '../prisma/enum-state-filter.input'
-import { DateTimeFilter } from '../prisma/date-time-filter.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { StringFilter } from 'src/models/prisma/string-filter.input'
+import { BoolFilter } from 'src/models/prisma/bool-filter.input'
+import { EnumStateFilter } from 'src/models/prisma/enum-state-filter.input'
+import { DateTimeFilter } from 'src/models/prisma/date-time-filter.input'
 
 @InputType()
 export class TaskScalarWhereInput {
@@ -17,8 +15,8 @@ export class TaskScalarWhereInput {
   @Field(() => [TaskScalarWhereInput], { nullable: true })
   NOT?: Array<TaskScalarWhereInput>
 
-  @Field(() => IntFilter, { nullable: true })
-  tid?: IntFilter
+  @Field(() => StringFilter, { nullable: true })
+  tid?: StringFilter
 
   @Field(() => StringFilter, { nullable: true })
   tlid?: StringFilter

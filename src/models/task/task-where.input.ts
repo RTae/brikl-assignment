@@ -1,7 +1,6 @@
 import { Field, InputType } from '@nestjs/graphql'
-import { IntFilter } from 'src/models/prisma/int-filter.input'
-import { TaskListRelationFilter } from 'src/models/task/task-list-relation-filter.input'
 import { StringFilter } from 'src/models/prisma/string-filter.input'
+import { TaskListRelationFilter } from './task-list-relation-filter.input'
 import { BoolFilter } from 'src/models/prisma/bool-filter.input'
 import { EnumStateFilter } from 'src/models/prisma/enum-state-filter.input'
 import { DateTimeFilter } from 'src/models/prisma/date-time-filter.input'
@@ -17,8 +16,8 @@ export class TaskWhereInput {
   @Field(() => [TaskWhereInput], { nullable: true })
   NOT?: Array<TaskWhereInput>
 
-  @Field(() => IntFilter, { nullable: true })
-  tid?: IntFilter
+  @Field(() => StringFilter, { nullable: true })
+  tid?: StringFilter
 
   @Field(() => TaskListRelationFilter, { nullable: true })
   taskList?: TaskListRelationFilter

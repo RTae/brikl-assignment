@@ -1,7 +1,8 @@
-import { Field, ArgsType } from '@nestjs/graphql'
-import { TaskUpdateInput } from 'src/models/task/task-update.input'
+import { Field } from '@nestjs/graphql'
+import { ArgsType } from '@nestjs/graphql'
+import { TaskUpdateInput } from './task-update.input'
 import { Type } from 'class-transformer'
-import { TaskWhereUniqueInput } from 'src/models/task/task-where-unique.input'
+import { TaskWhereUniqueInput } from './task-where-unique.input'
 
 @ArgsType()
 export class UpdateOneTaskArgs {

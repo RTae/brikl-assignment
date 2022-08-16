@@ -1,15 +1,13 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntFieldUpdateOperationsInput } from '../prisma/int-field-update-operations.input'
-import { StringFieldUpdateOperationsInput } from '../prisma/string-field-update-operations.input'
-import { BoolFieldUpdateOperationsInput } from '../prisma/bool-field-update-operations.input'
-import { EnumStateFieldUpdateOperationsInput } from '../prisma/enum-state-field-update-operations.input'
-import { DateTimeFieldUpdateOperationsInput } from '../prisma/date-time-field-update-operations.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { StringFieldUpdateOperationsInput } from 'src/models/prisma/string-field-update-operations.input'
+import { BoolFieldUpdateOperationsInput } from 'src/models/prisma/bool-field-update-operations.input'
+import { EnumStateFieldUpdateOperationsInput } from 'src/models/prisma/enum-state-field-update-operations.input'
+import { DateTimeFieldUpdateOperationsInput } from 'src/models/prisma/date-time-field-update-operations.input'
 
 @InputType()
 export class TaskUncheckedUpdateManyInput {
-  @Field(() => IntFieldUpdateOperationsInput, { nullable: true })
-  tid?: IntFieldUpdateOperationsInput
+  @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
+  tid?: StringFieldUpdateOperationsInput
 
   @Field(() => StringFieldUpdateOperationsInput, { nullable: true })
   tlid?: StringFieldUpdateOperationsInput

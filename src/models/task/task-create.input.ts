@@ -1,9 +1,12 @@
 import { Field, InputType } from '@nestjs/graphql'
 import { TaskListCreateNestedOneWithoutTasksInput } from 'src/models/task-list/task-list-create-nested-one-without-tasks.input'
-import { State } from 'src/models//prisma/state.enum'
+import { State } from 'src/models/prisma/state.enum'
 
 @InputType()
 export class TaskCreateInput {
+  @Field(() => String, { nullable: true })
+  tid?: string
+
   @Field(() => TaskListCreateNestedOneWithoutTasksInput, { nullable: false })
   taskList!: TaskListCreateNestedOneWithoutTasksInput
 

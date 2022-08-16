@@ -5,7 +5,7 @@ import { State } from 'src/models/prisma/state.enum'
 @ObjectType()
 export class Task {
   @Field(() => ID, { nullable: false })
-  tid!: number
+  tid!: string
 
   @Field(() => TaskList, { nullable: false })
   taskList?: TaskList

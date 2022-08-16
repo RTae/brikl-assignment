@@ -38,8 +38,16 @@ const db = {
   },
 }
 
+const service = {
+  get: jest.fn().mockReturnValue(outputs.taskList.taskListOutputArray),
+  create: jest.fn(),
+  update: jest.fn().mockResolvedValue(taskListUpdateOneInput.data),
+  delete: jest.fn().mockResolvedValue(taskListCreateInput),
+}
+
 export default {
   db,
+  service,
   taskListCreateInput,
   taskListGetWhereInput,
   taskListUpdateOneInput,

@@ -2,11 +2,6 @@ generator client {
   provider = "prisma-client-js"
 }
 
-generator nestgraphql {
-    provider = "node node_modules/prisma-nestjs-graphql"
-    output = "../../../models"
-}
-
 datasource db {
   provider = "postgresql"
   url      = env("DB_URL")
@@ -24,7 +19,7 @@ model TaskList {
 }
 
 model Task {
-  tid       Int         @id @default(autoincrement())
+  tid       String      @id @default(uuid())
   taskList  TaskList    @relation(fields: [tlid], references: [tlid])
   tlid      String     
   name      String

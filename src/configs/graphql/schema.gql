@@ -48,7 +48,7 @@ input TaskWhereInput {
   AND: [TaskWhereInput!]
   OR: [TaskWhereInput!]
   NOT: [TaskWhereInput!]
-  tid: IntFilter
+  tid: StringFilter
   taskList: TaskListRelationFilter
   tlid: StringFilter
   name: StringFilter
@@ -56,34 +56,6 @@ input TaskWhereInput {
   state: EnumStateFilter
   createdAt: DateTimeFilter
   updatedAt: DateTimeFilter
-}
-
-input IntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input NestedIntFilter {
-  equals: Int
-  in: [Int!]
-  notIn: [Int!]
-  lt: Int
-  lte: Int
-  gt: Int
-  gte: Int
-  not: NestedIntFilter
-}
-
-input TaskListRelationFilter {
-  every: TaskWhereInput
-  some: TaskWhereInput
-  none: TaskWhereInput
 }
 
 input StringFilter {
@@ -118,6 +90,12 @@ input NestedStringFilter {
   startsWith: String
   endsWith: String
   not: NestedStringFilter
+}
+
+input TaskListRelationFilter {
+  every: TaskWhereInput
+  some: TaskWhereInput
+  none: TaskWhereInput
 }
 
 input BoolFilter {
@@ -196,7 +174,7 @@ input TaskOrderByRelationAggregateInput {
 }
 
 input TaskWhereUniqueInput {
-  tid: Int
+  tid: String
 }
 
 enum TaskScalarFieldEnum {
@@ -244,6 +222,7 @@ type Mutation {
 }
 
 input TaskCreateInput {
+  tid: String
   taskList: TaskListCreateNestedOneWithoutTasksInput!
   name: String!
   status: Boolean
@@ -272,12 +251,17 @@ input TaskListCreateOrConnectWithoutTasksInput {
 }
 
 input TaskUpdateInput {
+  tid: StringFieldUpdateOperationsInput
   taskList: TaskListUpdateOneRequiredWithoutTasksNestedInput
   name: StringFieldUpdateOperationsInput
   status: BoolFieldUpdateOperationsInput
   state: EnumStateFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
+}
+
+input StringFieldUpdateOperationsInput {
+  set: String
 }
 
 input TaskListUpdateOneRequiredWithoutTasksNestedInput {
@@ -299,10 +283,6 @@ input TaskListUpdateWithoutTasksInput {
   desciprtion: StringFieldUpdateOperationsInput
   createdAt: DateTimeFieldUpdateOperationsInput
   updatedAt: DateTimeFieldUpdateOperationsInput
-}
-
-input StringFieldUpdateOperationsInput {
-  set: String
 }
 
 input DateTimeFieldUpdateOperationsInput {
@@ -334,6 +314,7 @@ input TaskCreateNestedManyWithoutTaskListInput {
 }
 
 input TaskCreateWithoutTaskListInput {
+  tid: String
   name: String!
   status: Boolean
   state: State
@@ -390,6 +371,7 @@ input TaskUpsertWithWhereUniqueWithoutTaskListInput {
 }
 
 input TaskUpdateWithoutTaskListInput {
+  tid: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   status: BoolFieldUpdateOperationsInput
   state: EnumStateFieldUpdateOperationsInput
@@ -411,7 +393,7 @@ input TaskScalarWhereInput {
   AND: [TaskScalarWhereInput!]
   OR: [TaskScalarWhereInput!]
   NOT: [TaskScalarWhereInput!]
-  tid: IntFilter
+  tid: StringFilter
   tlid: StringFilter
   name: StringFilter
   status: BoolFilter
@@ -421,6 +403,7 @@ input TaskScalarWhereInput {
 }
 
 input TaskUpdateManyMutationInput {
+  tid: StringFieldUpdateOperationsInput
   name: StringFieldUpdateOperationsInput
   status: BoolFieldUpdateOperationsInput
   state: EnumStateFieldUpdateOperationsInput

@@ -1,6 +1,5 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { TaskCreateWithoutTaskListInput } from './task-create-without-task-list.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { TaskCreateWithoutTaskListInput } from 'src/models/task/task-create-without-task-list.input'
 import { Type } from 'class-transformer'
 import { TaskCreateOrConnectWithoutTaskListInput } from './task-create-or-connect-without-task-list.input'
 import { TaskCreateManyTaskListInputEnvelope } from './task-create-many-task-list-input-envelope.input'

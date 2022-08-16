@@ -42,9 +42,9 @@ const db = {
 }
 
 const service = {
-  get: jest.fn().mockReturnValue(taskCreateInput),
-  create: jest.fn(),
-  update: jest.fn().mockResolvedValue(outputs.task.taskOutputArray),
+  get: jest.fn().mockReturnValue(outputs.task.taskOutputArray),
+  create: jest.fn().mockReturnValue(taskCreateInput),
+  update: jest.fn().mockResolvedValue(taskUpdateOneInput.data),
   delete: jest.fn().mockResolvedValue(taskCreateInput),
 }
 

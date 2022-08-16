@@ -1,10 +1,8 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
-import { IntWithAggregatesFilter } from '../prisma/int-with-aggregates-filter.input'
-import { StringWithAggregatesFilter } from '../prisma/string-with-aggregates-filter.input'
-import { BoolWithAggregatesFilter } from '../prisma/bool-with-aggregates-filter.input'
-import { EnumStateWithAggregatesFilter } from '../prisma/enum-state-with-aggregates-filter.input'
-import { DateTimeWithAggregatesFilter } from '../prisma/date-time-with-aggregates-filter.input'
+import { Field, InputType } from '@nestjs/graphql'
+import { StringWithAggregatesFilter } from 'src/models/prisma/string-with-aggregates-filter.input'
+import { BoolWithAggregatesFilter } from 'src/models/prisma/bool-with-aggregates-filter.input'
+import { EnumStateWithAggregatesFilter } from 'src/models/prisma/enum-state-with-aggregates-filter.input'
+import { DateTimeWithAggregatesFilter } from 'src/models/prisma/date-time-with-aggregates-filter.input'
 
 @InputType()
 export class TaskScalarWhereWithAggregatesInput {
@@ -17,8 +15,8 @@ export class TaskScalarWhereWithAggregatesInput {
   @Field(() => [TaskScalarWhereWithAggregatesInput], { nullable: true })
   NOT?: Array<TaskScalarWhereWithAggregatesInput>
 
-  @Field(() => IntWithAggregatesFilter, { nullable: true })
-  tid?: IntWithAggregatesFilter
+  @Field(() => StringWithAggregatesFilter, { nullable: true })
+  tid?: StringWithAggregatesFilter
 
   @Field(() => StringWithAggregatesFilter, { nullable: true })
   tlid?: StringWithAggregatesFilter

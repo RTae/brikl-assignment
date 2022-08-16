@@ -1,9 +1,8 @@
-import { Field } from '@nestjs/graphql'
-import { InputType } from '@nestjs/graphql'
+import { Field, InputType } from '@nestjs/graphql'
 import { TaskWhereUniqueInput } from './task-where-unique.input'
 import { Type } from 'class-transformer'
-import { TaskUpdateWithoutTaskListInput } from './task-update-without-task-list.input'
-import { TaskCreateWithoutTaskListInput } from './task-create-without-task-list.input'
+import { TaskUpdateWithoutTaskListInput } from 'src/models/task/task-update-without-task-list.input'
+import { TaskCreateWithoutTaskListInput } from 'src/models/task/task-create-without-task-list.input'
 
 @InputType()
 export class TaskUpsertWithWhereUniqueWithoutTaskListInput {
