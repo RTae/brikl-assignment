@@ -36,7 +36,7 @@ yarn start
 ```
 2. Go to path *http://localhost:3000/graphql*
 
-## 🐳 Start Service with Docker
+## 🐳 Start Service with Docker (Recommed)
 **Can not build in Mac-silicon-cpu**
 1. Build Image
 ```
