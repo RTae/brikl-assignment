@@ -28,11 +28,11 @@ npm run test
    
 ***For dev***
 ```
-yarn start:dev
+npm run start:dev
 ```
 ***For dev without hot-reload (You can run this for checking my code)***
 ```
-yarn start
+npm run start
 ```
 2. Go to path *http://localhost:3000/graphql*
 
